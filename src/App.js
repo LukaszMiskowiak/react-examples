@@ -1,25 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Container, Col, Row } from 'react-bootstrap';
+import styled from 'styled-components'
+
+import LeveledList from './components/list-leveled';
+import Counter from './components/counter';
+import PostsContainer from './containers/posts';
+import StateContext from './containers/state-context';
+import State from './containers/state';
+import StateReducer from './containers/state-reducer';
+
+const StyledContainer = styled(Container)`
+  * {
+    color: ${props => props.theme.primary};
+  }
+`
+
+const theme = {
+  primary: 'darkblue'
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <StyledContainer theme={theme}>
+      <StateReducer />
+    </StyledContainer>
   );
 }
 
